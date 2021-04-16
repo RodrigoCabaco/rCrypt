@@ -4,9 +4,6 @@ import methods
 
 #args content; key;
 
-num key >>4
-str content >> "32 308 0 48 308 76 28 16 308 4 16 72 76"
-
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
 list(str).ToCharArray:ALLCHARS; to:charset;
@@ -21,7 +18,7 @@ for index in range:contentList.length; name:for1; ident:"    ";
     str sp >>" "
     str l >>""
     str(l+contentList[index])
-    method file:methods/check_match; content:all;
+    method file:check_match; content:all;
 endFor(for1);
 
 for f in range:x; name:for2; ident:"    ";

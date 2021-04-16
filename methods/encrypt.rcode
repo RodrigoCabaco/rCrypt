@@ -3,8 +3,6 @@ import split
 
 #args content; key;
 
-str content >>"i am the best"
-num key >>4
 
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
