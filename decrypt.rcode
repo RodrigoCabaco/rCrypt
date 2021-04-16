@@ -1,0 +1,49 @@
+import filestream
+import split
+import methods
+
+#args content; key;
+
+num key >>4
+str content >> "32 308 0 48 308 76 28 16 308 4 16 72 76"
+
+str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
+list(str) "charset"
+list(str).ToCharArray:ALLCHARS; to:charset;
+list(str) "contentList"
+list(str).ToCharArray:content; to:contentList;
+str final_decrypted >>""
+list(str) "values"
+
+num x >>0
+for index in range:contentList.length; name:for1; ident:"    ";
+    getStrListValue(contentList[index])
+    str sp >>" "
+    str l >>""
+    str(l+contentList[index])
+    method file:methods/check_match; content:all;
+endFor(for1);
+
+for f in range:x; name:for2; ident:"    ";
+    num i >>0
+    i+f
+    str current >>""
+    getSplit from:content; to:current; index:i; separator:" ";
+    num current >>0
+    #sleep >>100
+    strToNum(current)
+    current/key
+    getStrListValue(charset[current])
+    str(final_decrypted+charset[current])
+endFor(for2);
+
+i++
+getSplit from:content; to:current; index:i; separator:" ";
+
+num current >>0
+#sleep >>100
+strToNum(current)
+current/key
+getStrListValue(charset[current])
+str(final_decrypted+charset[current])
+

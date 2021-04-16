@@ -1,0 +1,4 @@
+export ../
+if statement:str(sp==l); name:if1; ident:"   ";
+   x++
+endIf(if1);

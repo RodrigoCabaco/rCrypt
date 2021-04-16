@@ -1,0 +1,27 @@
+import filestream
+import split
+
+#args content; key;
+
+str content >>"i am the best"
+num key >>4
+
+str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
+list(str) "charset"
+list(str).ToCharArray:ALLCHARS; to:charset;
+list(str) "contentList"
+list(str).ToCharArray:content; to:contentList;
+str final_encrypted >>""
+
+for index in range:contentList.length; name:for1; ident:"    ";
+    getStrListValue(contentList[index])
+    num ind >>0
+    charset.IndexOf:contentList[index]; to:ind;
+    ind*key
+    numToStr(ind>>ind)
+    str(final_encrypted+ )
+    str(final_encrypted+ind)
+endFor(for1);
+
+WriteStr {final_encrypted}
+
