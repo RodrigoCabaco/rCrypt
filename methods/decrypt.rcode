@@ -4,6 +4,8 @@ import methods
 
 #args content; key;
 
+
+
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
 list(str).ToCharArray:ALLCHARS; to:charset;
@@ -18,7 +20,7 @@ for index in range:contentList.length; name:for1; ident:"    ";
     str sp >>" "
     str l >>""
     str(l+contentList[index])
-    method file:check_match; content:all;
+    method file:methods/check_match; content:all;
 endFor(for1);
 
 for f in range:x; name:for2; ident:"    ";
@@ -43,6 +45,5 @@ strToNum(current)
 current/key
 getStrListValue(charset[current])
 str(final_decrypted+charset[current])
-newln
-WriteStr {final_decrypted}
 
+WriteStr {final_decrypted}

@@ -40,11 +40,11 @@ if statement:str(arg1==encrypt); name:ifEncrypt; ident:"    ";
     method file:methods/encrypt; content:all;
 endIf(ifEncrypt);
 
-if statement:str(arg1==decrypt); name:ifEncrypt; ident:"    ";
+if statement:str(arg1==decrypt); name:ifDecrypt; ident:"    ";
     str content >>""
     str(content+arg2)
     num key >>0
     strToNum(arg3)
     key+arg3
     method file:methods/decrypt; content:all;
-endIf(ifEncrypt);
+endIf(ifDecrypt);
