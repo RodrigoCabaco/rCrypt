@@ -1,0 +1,3 @@
+
+-> usage rC main.rcode --encrypt "content" key
+-> usage rC main.rcode --decrypt "content" key

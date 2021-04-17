@@ -43,4 +43,6 @@ strToNum(current)
 current/key
 getStrListValue(charset[current])
 str(final_decrypted+charset[current])
+newln
+WriteStr {final_decrypted}
 

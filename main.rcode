@@ -1,0 +1,48 @@
+import filestream
+
+
+#usage rC main.rcode --encrypt "content" key
+#usage rC main.rcode --decrypt "content" key
+
+str ascii >>""
+ReadFile file:ascii_logo; str:ascii;
+color.magenta
+WriteStr{ascii}
+newln
+color.reset
+newln
+Write "https://www.github.com/RodrigoCabaco/rCrypt;"
+newln
+Write "Developed in rC (https://www.github.com/RodrigoCabaco/rC"
+newln
+
+#possible options
+str help_command >>"-h"
+str version_current >>"1.0.0"
+str encrypt >>"--encrypt"
+str decrypt >>"--decrypt"
+str version >>"-v"
+str help_text >>""
+ReadFile file:help; str:help_text;
+if statement:str(arg1==help_command); name:ifHelp; ident:"    ";
+    color.green
+    WriteStr {help_text}
+    color.reset
+endIf(ifHelp);
+if statement:str(arg1==encrypt); name:ifEncrypt; ident:"    ";
+    str content >>""
+    str(content+arg2)
+    num key >>0
+    strToNum(arg3)
+    key+arg3
+    method file:methods/encrypt; content:all;
+endIf(ifEncrypt);
+
+if statement:str(arg1==decrypt); name:ifEncrypt; ident:"    ";
+    str content >>""
+    str(content+arg2)
+    num key >>0
+    strToNum(arg3)
+    key+arg3
+    method file:methods/decrypt; content:all;
+endIf(ifEncrypt);

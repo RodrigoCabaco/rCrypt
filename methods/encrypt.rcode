@@ -20,6 +20,6 @@ for index in range:contentList.length; name:for1; ident:"    ";
     str(final_encrypted+ )
     str(final_encrypted+ind)
 endFor(for1);
-
+newln
 WriteStr {final_encrypted}
 
