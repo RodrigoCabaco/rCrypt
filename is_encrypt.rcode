@@ -1,0 +1,6 @@
+str content >>""
+str(content+arg2)
+num key >>0
+strToNum(arg3)
+key+arg3
+method file:methods/encrypt; content:all;

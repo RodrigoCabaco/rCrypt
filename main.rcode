@@ -31,20 +31,14 @@ if statement:str(arg1==help_command); name:ifHelp; ident:"    ";
     WriteStr {help_text}
     color.reset
 endIf(ifHelp);
-if statement:str(arg1==encrypt); name:ifEncrypt; ident:"    ";
-    str content >>""
-    str(content+arg2)
-    num key >>0
-    strToNum(arg3)
-    key+arg3
-    method file:methods/encrypt; content:all;
-endIf(ifEncrypt);
+
 
 if statement:str(arg1==decrypt); name:ifDecrypt; ident:"    ";
-    str content >>""
-    str(content+arg2)
-    num key >>0
-    strToNum(arg3)
-    key+arg3
-    method file:methods/decrypt; content:all;
+    method file:is_decrypt; content:all;
 endIf(ifDecrypt);
+
+if statement:str(arg1==encrypt); name:ifEncrypt; ident:"    ";
+    method file:is_encrypt; content:all;
+endIf(ifEncrypt);
+
+newln

@@ -4,8 +4,6 @@ import methods
 
 #args content; key;
 
-
-
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
 list(str).ToCharArray:ALLCHARS; to:charset;
