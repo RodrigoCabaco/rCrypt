@@ -8,6 +8,9 @@ import modules
 num salt >>1
 key*salt
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
+str _enter >>""
+ReadFile file:enter; str:_enter;
+str ALLCHARS.Add >>_enter;
 list(str) "charset"
 list(str).ToCharArray:ALLCHARS; to:charset;
 list(str) "contentList"

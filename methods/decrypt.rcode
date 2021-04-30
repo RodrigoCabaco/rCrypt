@@ -7,6 +7,9 @@ import modules
 num salt >>1
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
+str _enter >>""
+ReadFile file:enter; str:_enter;
+str ALLCHARS.Add >>_enter;
 list(str).ToCharArray:ALLCHARS; to:charset;
 str toDecode >>content
 modules.rCB64.decode(toDecode)
