@@ -1,0 +1,10 @@
+import encode
+import filestream
+import process
+import decode
+
+str toDecode >>"aWFtdGhlYmV0c3Q="
+decode()
+WriteStr {decoded}
+newln
+exit()

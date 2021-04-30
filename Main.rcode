@@ -1,0 +1,58 @@
+#!/usr/bin/rC
+#todo: add --encrypt-file
+import filestream
+import process
+
+#usage rC main.rcode --encrypt "content" key
+#usage rC main.rcode --decrypt "content" key
+
+str nothing >>"arg1"
+str ascii >>""
+ReadFile file:ascii_logo; str:ascii;
+color.green
+WriteStr{ascii}
+newln
+color.reset
+newln
+Write "https://www.github.com/RodrigoCabaco/rCrypt;"
+newln
+Write "Developed in rC (https://www.github.com/RodrigoCabaco/rC"
+newln
+help_text
+ReadFile file:help; str:help_text;
+#possible options
+str check_args >>""
+str(check_args+arg1)
+if statement:str(check_args==nothing); name:checkIf; ident:"    ";
+    color.green
+    WriteStr {help_text}
+    color.reset
+}checkIf;
+
+str help_command >>"-h"
+str version_current >>"1.0.0"
+str encrypt >>"--encrypt"
+str decrypt >>"--decrypt"
+str version >>"-v"
+str  >>""
+if statement:str(arg1==help_command); name:ifHelp; ident:"    ";
+    color.green
+    WriteStr {help_text}
+    color.reset
+}ifHelp;
+
+
+if statement:str(arg1==decrypt); name:ifDecrypt; ident:"    ";
+    method file:methods/is_decrypt; content:all;
+}ifDecrypt;
+
+if statement:str(arg1==encrypt); name:ifEncrypt; ident:"    ";
+    method file:methods/is_encrypt; content:all;
+}ifEncrypt;
+newln
+#newln
+newln
+Write "Total compiling time: "
+exectime(secs)
+newln
+exit()

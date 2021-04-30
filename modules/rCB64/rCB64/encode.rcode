@@ -1,0 +1,7 @@
+str _encoded >>""
+StartProcess file:modules/rCB64/exe/b64_rc; args:--encode,toEncode;
+sleep >>150
+ReadFile file:encoded; str:_encoded;
+sleep >>150
+DeleteFile file:encoded;
+str encoded >>_encoded

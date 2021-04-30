@@ -1,17 +1,23 @@
 import filestream
 import split
 import methods
+import modules
 
 #args content; key;
-
+num salt >>1
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
 list(str).ToCharArray:ALLCHARS; to:charset;
+str toDecode >>content
+modules.rCB64.decode(toDecode)
+str content >>""
+sleep >>10
+str(content+decoded)
 list(str) "contentList"
 list(str).ToCharArray:content; to:contentList;
 str final_decrypted >>""
 list(str) "values"
-
+key/salt
 num x >>0
 for index in range:contentList.length; name:for1; ident:"    ";
     getStrListValue(contentList[index])
@@ -19,11 +25,12 @@ for index in range:contentList.length; name:for1; ident:"    ";
     str l >>""
     str(l+contentList[index])
     method file:methods/check_match; content:all;
-endFor(for1);
+}for1;
 
 for f in range:x; name:for2; ident:"    ";
     num i >>0
     i+f
+    i++
     str current >>""
     getSplit from:content; to:current; index:i; separator:" ";
     num current >>0
@@ -32,7 +39,7 @@ for f in range:x; name:for2; ident:"    ";
     current/key
     getStrListValue(charset[current])
     str(final_decrypted+charset[current])
-endFor(for2);
+}for2;
 
 i++
 getSplit from:content; to:current; index:i; separator:" ";
@@ -44,4 +51,8 @@ current/key
 getStrListValue(charset[current])
 str(final_decrypted+charset[current])
 
+color.green
+Write "Decrypted: "
+color.reset
 WriteStr {final_decrypted}
+color.reset

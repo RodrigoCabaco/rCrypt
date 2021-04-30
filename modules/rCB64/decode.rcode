@@ -1,0 +1,9 @@
+function _(str toDecode){
+    str _encoded >>""
+    StartProcess file:modules/rCB64/exe/b64_rc; args:--decode,toDecode;
+    sleep >>300
+    ReadFile file:./encoded; str:_encoded;
+    DeleteFile file:encoded;
+    str decoded >>_encoded
+}_;
+_(toDecode)

@@ -1,9 +1,12 @@
+import process
 import filestream
 import split
-
+import rCB64
+import modules
 #args content; key;
 
-
+num salt >>1
+key*salt
 str ALLCHARS >> "abcdefghijklmnopqrstuvwxyz,.ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890?!-_'|#$&/()= {};[]+ºª"
 list(str) "charset"
 list(str).ToCharArray:ALLCHARS; to:charset;
@@ -19,7 +22,16 @@ for index in range:contentList.length; name:for1; ident:"    ";
     numToStr(ind>>ind)
     str(final_encrypted+ )
     str(final_encrypted+ind)
-endFor(for1);
+}for1;
 newln
-WriteStr {final_encrypted}
-
+color.green
+Write "Encrypted Content: "
+newln
+str finalencrypt >>""
+str(finalencrypt+")
+str(finalencrypt+final_encrypted)
+str(finalencrypt+")
+str toEncode >>finalencrypt
+modules.rCB64.encode(toEncode)
+WriteStr {encoded}
+color.reset

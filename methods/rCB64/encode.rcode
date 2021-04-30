@@ -1,0 +1,10 @@
+import process
+import filestream
+
+str _encoded >>""
+
+StartProcess file:exe/b64_rc; args:--encode,toEncode;
+sleep >>300
+ReadFile file:encoded; str:_encoded;
+DeleteFile file:encoded;
+str encoded >>_encoded
